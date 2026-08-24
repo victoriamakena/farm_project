@@ -30,11 +30,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::dropIfExists('books');
-         Schema::table('books', function (Blueprint $table) {
-            $table->dropForeign('genre_genre_id_foreign');
+        // Schema::dropIfExists('products');
+         Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign('caegory_category_id_foreign');
 
-            $table->dropColumn('genre_id');
+            $table->dropColumn('category_id');
             
         });
     }

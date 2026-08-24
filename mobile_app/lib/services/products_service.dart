@@ -8,6 +8,7 @@ class ProductsService extends ChangeNotifier{
   final ApiService apiService = ApiService();
 
   List<ProductsModel> products = [];
+  List<CategoryModel> categories = [];
 
   bool isLoading = false;
 
@@ -29,6 +30,26 @@ class ProductsService extends ChangeNotifier{
       notifyListeners();
     }
   }
+
+  Future<void> fetchCategories() async {
+    isLoading = true;
+    notifyListeners();
+
+    try{
+    final response = await apiService.get("/fetchAllCategories");
+
+    categories = (response as List)
+        .map((category) => CategoryModel.fromJson(category))
+        .toList();
+
+    }catch(e){
+        print("Error fetching categories: $e");
+    }finally{
+        isLoading = false;
+        notifyListeners();
+    }
+}
+
   Future<void> fetchProductsPerCategory(int id) async {
     isLoading = true;
     notifyListeners();

@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
             'name'=>'Tomato',
             'price'=>200,
             'category_id'=>1,
-            'image'=>'products/tomatoes.jpg',
+            'image'=>'products/tomato.jpg',
             'availability'=>1,
             'description'=>'Juicy and fresh',
         ]);
@@ -27,7 +27,7 @@ class ProductSeeder extends Seeder
             'name'=>'Onion',
             'price'=>200,
             'category_id'=>2,
-            'image'=>'products/tomatoes.jpg',
+            'image'=>'products/onion.jpg',
             'availability'=>1,
             'description'=>'Juicy and fresh',
         ]);
@@ -35,7 +35,7 @@ class ProductSeeder extends Seeder
             'name'=>'Orange',
             'price'=>200,
             'category_id'=>1,
-            'image'=>'products/oranges.jpg',
+            'image'=>'products/orange.jpg',
             'availability'=>1,
             'description'=>'Juicy and fresh',
         ]);
