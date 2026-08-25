@@ -7,6 +7,7 @@ import 'widgets/bottom_nav.dart';
 import 'services/products_service.dart';
 import 'services/auth_service.dart';
 import 'services/order_service.dart';
+import '../services/cart_service.dart';
 
 void main() {
   runApp(
@@ -20,6 +21,9 @@ void main() {
         ),
          ChangeNotifierProvider(
           create: (_) =>OrdersService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) =>CartService(),
         ),
       ],
       child: const MyApp()

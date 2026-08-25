@@ -1,4 +1,3 @@
-//Service
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
@@ -56,11 +55,11 @@ class OrdersService extends ChangeNotifier {
 
 //Model
 class OrdersModel{
-  final int productId;
   final int id;
+  final int productId;
   final String productName;
   final int quantity;
-  final int orderStatus;
+  final String orderStatus;  
   final double price;
   final String image;
   final DateTime createdAt;
@@ -72,7 +71,7 @@ class OrdersModel{
     required this.productName,
     required this.price,
     required this.image,
-    this.orderStatus = 1,
+    this.orderStatus = "",
     required this.createdAt,
 
   });
@@ -81,11 +80,11 @@ class OrdersModel{
     return OrdersModel(
       productId: json['product_id'] ?? "",
       quantity: json['quantity'] ?? "",
-      orderStatus: json['book_id'] ?? "",
+      orderStatus: json['order_status'] == 0 ? 'Fulfilled' : 'Processing',
       id: json["id"],
       productName: json["product"]["name"]?? "",
-      price: (json["book"]["price"] as num).toDouble(),
-      image: json["book"]["image"] ?? "",
+      price: (json["product"]["price"] as num).toDouble(),
+      image: json["product"]["image"] ?? "",
       createdAt: DateTime.parse(json["created_at"]),
     );
   }
